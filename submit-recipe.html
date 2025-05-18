@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Recipe - MyRecipes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="submit-recipe.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">MyRecipes</div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="index.html#recipes">Recipes</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="submit-recipe.html">Submit Recipe</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="submit-recipe-section">
+        <h2>Submit Your Recipe</h2>
+        <p>Share your delicious recipes with our community!</p>
+        <form id="submitRecipeForm">
+            <div class="form-group">
+                <label for="recipeName">Recipe Name:</label>
+                <input type="text" id="recipeName" name="recipeName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="recipeImage">Upload Image:</label>
+                <input type="file" id="recipeImage" name="recipeImage" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" name="ingredients" rows="8" placeholder="Enter ingredients, separated by new lines" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="instructions">Instructions:</label>
+                <textarea id="instructions" name="instructions" rows="10" placeholder="Enter instructions, step by step" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="prepTime">Prep Time (e.g., 15 mins):</label>
+                <input type="text" id="prepTime" name="prepTime">
+            </div>
+
+            <div class="form-group">
+                <label for="cookTime">Cook Time (e.g., 30 mins):</label>
+                <input type="text" id="cookTime" name="cookTime">
+            </div>
+
+            <button type="submit">Submit Recipe</button>
+        </form>
+    </section>
+
+    <footer>
+        <h5>© 2025 MyRecipes. All Rights Reserved.</h5>
+    </footer>
+
+    <script>
+        document.getElementById('submitRecipeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // In a real application, you would send this data to a server
+            const recipeName = document.getElementById('recipeName').value;
+            const recipeImage = document.getElementById('recipeImage').files[0];
+            const ingredients = document.getElementById('ingredients').value;
+            const instructions = document.getElementById('instructions').value;
+            const prepTime = document.getElementById('prepTime').value;
+            const cookTime = document.getElementById('cookTime').value;
+
+            console.log('Recipe Name:', recipeName);
+            console.log('Image:', recipeImage);
+            console.log('Ingredients:', ingredients);
+            console.log('Instructions:', instructions);
+            console.log('Prep Time:', prepTime);
+            console.log('Cook Time:', cookTime);
+
+            alert('Your recipe has been submitted! (This is a simulation)');
+            document.getElementById('submitRecipeForm').reset(); // Clear the form
+        });
+    </script>
+
+</body>
+</html>

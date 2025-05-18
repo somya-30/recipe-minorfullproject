@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyRecipes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">MyRecipes</div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="submit-recipe.html">Submit Recipe</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Delicious Recipes</h1>
+            <p>Explore a wide variety of mouth-watering recipes for every occasion.</p>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search Recipes...">
+                <button onclick="searchRecipes()">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe" id="recipes">
+        <h2>Our Featured Recipes</h2>
+        <div class="box recipe-list">
+            <div class="card" data-recipe-name="Veg Biryani">
+                <img src="oneimg.jpg" alt="Veg Biryani">
+                <div class="content">
+                    <h3>VEG BIRYANI</h3>
+                    <p>Aromatic basmati rice cooked with veggies.</p>
+                    <a href="veg-biryani.html" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+
+            <div class="card" data-recipe-name="Paneer Butter Masala">
+                <img src="twoimg.png" alt="Paneer Butter Masala">
+                <div class="content">
+                    <h3>PANEER BUTTER MASALA</h3>
+                    <p>Creamy tomato gravy with soft paneer cubes.</p>
+                    <a href="paneer-butter-masala.html" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+
+            <div class="card" data-recipe-name="Pasta Alfredo">
+                <img src="threeimg.png" alt="Pasta Alfredo">
+                <div class="content">
+                    <h3>PASTA ALFREDO</h3>
+                    <p>Classic creamy white sauce pasta.</p>
+                    <a href="pasta-alfredo.html" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+
+            <div class="card" data-recipe-name="Chocolate Cake">
+                <img src="four.jpg" alt="Chocolate Cake">
+                <div class="content">
+                    <h3>CHOCOLATE CAKE</h3>
+                    <p>Rich and moist chocolate cake.</p>
+                    <a href="chocolate-cake.html" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+
+            <div class="card" data-recipe-name="Mango Smoothie">
+                <img src="fiveimg.png" alt="Mango Smoothie">
+                <div class="content">
+                    <h3>MANGO SMOOTHIE</h3>
+                    <p>Refreshing summer drink with mangoes.</p>
+                    <a href="mango-smoothie.html" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+
+            <div class="card" data-recipe-name="Grilled Sandwich">
+                <img src="six.png" alt="Grilled Sandwich">
+                <div class="content">
+                    <h3>GRILLED SANDWICH</h3>
+                    <p>Loaded with veggies and cheese.</p>
+                    <a href="grilled-sandwich.html" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+
+            <div class="card" data-recipe-name="Aloo Paratha">
+                <img src="seven.png" alt="Aloo Paratha">
+                <div class="content">
+                    <h3>ALOO PARATHA</h3>
+                    <p>Indian stuffed flatbread with spicy potato filling.</p>
+                    <a href="aloo-paratha.html" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+
+            <div class="card" data-recipe-name="Fruit Salad">
+                <img src="eightimg.png" alt="Fruit Salad">
+                <div class="content">
+                    <h3>FRUIT SALAD</h3>
+                    <p>Healthy and colorful mix of fruits.</p>
+                    <a href="fruit-salad.html" class="view-recipe-btn">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-info">
+            <h2>Contact Info</h2>
+            <p>Feel free to get in touch with us!</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon">Fb</a>
+                <a href="#" class="social-icon">Insta</a>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email">
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <h5>© 2025 MyRecipes. All Rights Reserved.</h5>
+    </footer>
+
+    <script>
+        function searchRecipes() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const recipeCards = document.querySelectorAll('.card');
+            const recipeList = document.querySelector('.box'); // Changed selector to .box
+
+            recipeCards.forEach(card => {
+                const recipeName = card.dataset.recipeName.toLowerCase();
+                if (recipeName.includes(searchInput)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
